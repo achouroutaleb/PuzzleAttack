@@ -87,6 +87,7 @@
         android:textColor="@android:color/background_light"
         android:textSize="28sp"
         android:textStyle="bold" />
+
     <Button
         android:id="@+id/score"
         android:layout_width="match_parent"
@@ -100,7 +101,7 @@
         android:background="#2e4240"
         android:orientation="horizontal"
 
-        android:text="Best Score"
+        android:text="Score"
         android:textColor="@android:color/background_light"
         android:textSize="28sp"
         android:textStyle="bold" />
@@ -140,7 +141,7 @@
             android:layout_marginLeft="10dp"
             android:orientation="horizontal"
 
-            >
+            android:weightSum="1">
 
             <RadioButton
                 android:id="@+id/music_on"
@@ -154,7 +155,7 @@
                 android:scaleY="0.8"
                 android:text="ON"
                 android:textColor="#fff"
-                android:textSize="18dp" />
+                android:textSize="16dp" />
 
             <RadioButton
                 android:id="@+id/music_off"
@@ -166,7 +167,8 @@
                 android:scaleY="0.8"
                 android:text="OFF"
                 android:textColor="#fff"
-                android:textSize="18dp" />
+                android:textSize="16dp"
+                android:layout_weight="1.50" />
         </RadioGroup>
     </LinearLayout>
 

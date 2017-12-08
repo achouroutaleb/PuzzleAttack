@@ -1,12 +1,13 @@
 
-package com.example.mazigh_zizou.puzzleattack_master;
+
+        package com.example.mazigh_zizou.puzzleattack_master;
 
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.widget.TextView;
+        import android.app.Activity;
+        import android.content.Context;
+        import android.content.SharedPreferences;
+        import android.os.Bundle;
+        import android.widget.TextView;
 
 /**
  * Created by Mazigh-zizou on 08/12/2017.
@@ -24,8 +25,8 @@ public class score extends Activity {
         setContentView(R.layout.score);
 
         scoreLevel3 = (TextView) findViewById(R.id.afficheur_level3);
-        scoreLevel2 = (TextView) findViewById(R.id.afficheur_level2);
-        scoreLevel1= (TextView) findViewById(R.id.afficheur_level1);
+        scoreLevel2 = (TextView) findViewById(R.id.score_level2);
+       // scoreLevel1= (TextView) findViewById(R.id.best_level2);
 
 
         SharedPreferences shareLevel3 = this.getSharedPreferences("level3", Context.MODE_PRIVATE);
@@ -61,9 +62,9 @@ public class score extends Activity {
         scoreLevel2.setText(""+aff);
 
 
-        SharedPreferences shareLevel1 = this.getSharedPreferences("level1", Context.MODE_PRIVATE);
+       /* SharedPreferences shareLevel1 = this.getSharedPreferences("level1", Context.MODE_PRIVATE);
         String mazigho = shareLevel1.getString("ScoreLevel1", " ");
-        scoreLevel1.setText(""+mazigho);
+        scoreLevel1.setText(""+mazigho);*/
 
 
     }

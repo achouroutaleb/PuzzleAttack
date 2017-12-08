@@ -284,27 +284,28 @@ public class MainActivityView extends SurfaceView implements SurfaceHolder.Callb
             final String share3= shareLevel3.getString("ScoreLevel3"," ");
             SharedPreferences shareLevel2 = this.pContext.getSharedPreferences("level2",MODE_PRIVATE);
             final String share2= shareLevel2.getString("ScoreLevel2"," ");
-            SharedPreferences shareLevel1 = this.pContext.getSharedPreferences("level1",MODE_PRIVATE);
-            final String share1= shareLevel1.getString("ScoreLevel1"," ");
+            SharedPreferences shareLevel1 = this.pContext.getSharedPreferences("level4",MODE_PRIVATE);
+            final String share1= shareLevel1.getString("ScoreLevel4"," ");
 
             String timee = new String();
             timee= Integer.toString(time);
             if (isWon())
 
             {
-                if ( l==0){
+
+                if ( l==0) {
                    /* String sss = new String();
                     sss= Integer.toString(time);*/
 
-                    SharedPreferences.Editor editorz = pContext.getSharedPreferences("level1", MODE_PRIVATE).edit();
-                    editorz.putString("ScoreLevel1", (String) timee);
+                    SharedPreferences.Editor editorz = pContext.getSharedPreferences("level4", MODE_PRIVATE).edit();
+                    editorz.putString("ScoreLevel4", (String) timee);
                     editorz.commit();
-                    SharedPreferences.Editor editorR = pContext.getSharedPreferences("level3", MODE_PRIVATE).edit();
-                    editorR.putString("ScoreLevel3", (String) timee);
+                    SharedPreferences.Editor editorR = pContext.getSharedPreferences("level4", MODE_PRIVATE).edit();
+                    editorR.putString("ScoreLevel4", (String) timee);
                     editorR.commit();
 
-
                 }
+
 
 
                 if ( l==1){
@@ -382,7 +383,7 @@ public class MainActivityView extends SurfaceView implements SurfaceHolder.Callb
             {
                 DialogueDisp = true;
                 text.setColor(Color.WHITE);
-                canvas.drawText("1 déplacement autoriser ", 12, carteTopAnchor / 2, text);
+                canvas.drawText("1 déplacement autorisé ", 12, carteTopAnchor / 2, text);
                 paintTimer(canvas);
                 canvas.drawText(""+ time + "", getWidth()-50, 120, text);
               /*  String monScore = new String();
@@ -397,13 +398,13 @@ public class MainActivityView extends SurfaceView implements SurfaceHolder.Callb
         { if (l==0){
             DialogueDisp = true;
             text.setColor(Color.WHITE);
-            canvas.drawText("1 déplacement autoriser ", 12, carteTopAnchor / 2, text);
+            canvas.drawText("1 déplacement autorisé ", 12, carteTopAnchor / 2, text);
             paintTimer(canvas);
             canvas.drawText(""+ time + "", getWidth()-50, 120, text);}
         else
             {
             text.setColor(Color.WHITE);
-            canvas.drawText("2 déplacement autoriser ", 12, carteTopAnchor / 2, text);
+            canvas.drawText("2 déplacement autorisé ", 12, carteTopAnchor / 2, text);
             paintTimer(canvas);
             canvas.drawText(""+ time + "", getWidth()-50, 120, text);
 
@@ -463,7 +464,7 @@ public class MainActivityView extends SurfaceView implements SurfaceHolder.Callb
             }
         }
 
-        //s'il n'a pas gagné ( soit perdu - soit début du jeu )
+
         else {
             paintcarte(canvas);
             delet();
@@ -555,6 +556,7 @@ public class MainActivityView extends SurfaceView implements SurfaceHolder.Callb
                                 carte[i - 1][j + 1] = CST_vide;
                                 i--;
                             }
+
                             i = a;
                             while (i > 0) {
                                 carte[i][j + 2] = carte[i - 1][j + 2];
@@ -566,7 +568,9 @@ public class MainActivityView extends SurfaceView implements SurfaceHolder.Callb
 
                     }
                 }
+
             }
+
 
 
             vert = false;
@@ -628,7 +632,7 @@ public class MainActivityView extends SurfaceView implements SurfaceHolder.Callb
 
 
 
-    // fonction permettant de recuperer les evenements tactiles
+    // la récuperation des évenement tactile
     public boolean onTouchEvent (MotionEvent event) {
         if (nbTouch < 2) {
             boolean empty = true;
@@ -652,7 +656,7 @@ public class MainActivityView extends SurfaceView implements SurfaceHolder.Callb
                     if ((x - xDown) > 0) { direction = 1;  }  //Déplacement à droite
                     if ((x - xDown) < 0) { direction = -1; }  //Déplacement à gauche
 
-                    //si on est pas dans la petite marge qu'on à laissée en haut ( carteTopAnchor )
+
                     if (yDown >= 0)
                     {
                         //si la case qu'on a touchée n'est pas vide
@@ -721,18 +725,16 @@ public class MainActivityView extends SurfaceView implements SurfaceHolder.Callb
     private void AlertDialog(){
         AlertDialog.Builder about = new AlertDialog.Builder(pContext);
 
-        //nbTouch == 2 est détécté avant isWon
-        //afin d'éviter que AlertDialog affiche un "Lose :/" on met un sleep avant de vérifier la condition isWon
 
         try{
             Thread.sleep(301);
         }catch(Exception e){}
 
         if(isWon()) {
-            about.setTitle("Congratulations");
+            about.setTitle("Félicitations ");
         }
         else {
-            about.setTitle("Lose :/");
+            about.setTitle("Perdue :/");
         }
 
         TextView l_viewabout = new TextView(pContext);

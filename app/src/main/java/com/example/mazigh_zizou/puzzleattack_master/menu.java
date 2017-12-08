@@ -48,7 +48,7 @@ public class menu  extends Activity {
         switch (id) {
             case alertDialogueHowToPlay:    // pour le boutton de how to play : création des AlertDialogue lors de l'appuie sur notre boutton
                 builder = new AlertDialog.Builder(this);
-                builder.setMessage("notre message");
+                builder.setMessage("-  Résoudre le Puzzle en allignant 3 images identiques ( ou plus )\n -  vous avez 2 tentatives pour chaque niveau \n -  Essayez d'avoir un meuilleur Score  ");
                 //builder.setIcon(R.drawable.blue);
 
                 builder.setTitle("HowToPlay");
@@ -63,7 +63,7 @@ public class menu  extends Activity {
             case alertDialogueAbout: // pour le boutton about : création des AlertDialogue lors de l'appuie sur notre boutton
 
                 builder = new AlertDialog.Builder(this);
-                builder.setMessage("notre message");
+                builder.setMessage("Puzzle Attack Created by: \n-  Outaleb Achour \n-  Aoudjit Athmane");
                 builder.setTitle("About");
                 builder.setIcon(R.drawable.about);
                 builder.setCancelable(true);
